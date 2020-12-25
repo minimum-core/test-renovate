@@ -1,0 +1,36 @@
+{
+  "labels": [
+    "renovate:{{depName}}"
+  ],
+  "enabledManagers": ["helmfile"],
+  "packageRules": [
+    {
+      "managers": ["helmfile"],
+      "packagePatterns": [".*"],
+      "updateTypes": ["minor", "patch", "pin"],
+      "additionalBranchPrefix": "{{baseDir}}-",
+      "commitMessageSuffix": "({{baseDir}})"
+    },
+    {
+      "managers": ["helmfile"],
+      "packageNames": ["ingress-nginx"],
+      "prBodyNotes": [
+        "[compare](https://github.com/kubernetes/ingress-nginx/compare/helm-chart-{{currentVersion}}...helm-chart-{{newVersion}})"
+      ]
+    },
+    {
+      "managers": ["helmfile"],
+      "packageNames": ["datadog"],
+      "prBodyNotes": [
+        "[compare](https://github.com/DataDog/helm-charts/compare/datadog-{{currentVersion}}...datadog-{{newVersion}})"
+      ]
+    },
+    {
+      "managers": ["helmfile"],
+      "packageNames": ["velero"],
+      "prBodyNotes": [
+        "[compare](https://github.com/vmware-tanzu/helm-charts/compare/velero-{{currentVersion}}...velero-{{newVersion}})"
+      ]
+    }
+  ]
+}
