@@ -1,6 +1,7 @@
 {
   "labels": [
-    "renovate:{{depName}}"
+    "renovate:depName={{depName}}",
+    "renovate:newVersion={{newVersion}}"
   ],
   "enabledManagers": ["helmfile"],
   "packageRules": [
